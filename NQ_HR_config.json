@@ -1,0 +1,1335 @@
+{
+    "domain": "//*[@text='Domain']",
+    "domain_name": "groupware57.hanbiro.net",
+    "id_app": "//*[@text='ID']",
+    "id_name": "quynh1",
+    "id_name_2": "quynh2",
+    "password": "//*[@text='Password']",
+    "pass_input": "quynh1!!",
+    "button_login": "//*[contains(@text,'Login')]",
+
+    "next": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index=2]",
+    "prev": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=0]",
+    "calendar_select": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']/android.widget.TextView[@index=0]",
+    "select_date": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Select']",
+            
+
+    "title": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='0']/android.widget.TextView[@text='GPS']",
+
+    "clock_in":{
+        "icon_clock_in_button": "//*[contains(@text,'Clock In')]",
+        "icon_clockin": "//android.view.ViewGroup[@index='0']/android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']/android.widget.ImageView",
+        "text_input": "//*[contains(@text,'Please enter your reason')]",
+        "text": "appium",
+        "save_button": "//*[contains(@text,'Save')]",
+        
+        "nightshift": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Night Shift']",
+
+        "clock_in_late": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=3]",
+
+        "breaktime_text": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Break Time']",
+        "icon_breaktime": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']/android.widget.ImageView",
+        "end_break_time": "//*[contains(@text,'END BREAK TIME')]",
+        
+        "IN": "//androidx.viewpager.widget.ViewPager//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='In']",
+        "OUT": "//androidx.viewpager.widget.ViewPager//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='Out']",
+        "select_branch": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='1']//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=0]",
+
+        "close_popup": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+        
+        "preview": "//android.widget.ScrollView[@index='0']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=0]",
+        "next": "//android.widget.ScrollView[@index='0']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.view.ViewGroup[@index='2']//android.widget.TextView[@index=0]",
+        "calendar": "//android.widget.ScrollView[@index='0']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.view.ViewGroup[@index='1']//android.widget.TextView[@index=0]",
+        "select": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Select']",
+        "warning": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Please select worked day']"
+    },
+    
+    "clock_out": {
+        "icon_clock_out_button": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='2']/android.widget.ImageView",
+        
+        "status": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=3]",
+        "close": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+        
+        "popup": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Leave Early']",
+        "close_popup": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='4']/android.widget.TextView[@text='Close']",
+        "save": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.widget.TextView[@text='Yes']"
+    },
+    
+    "OT":{
+        "confirm_OT": "//*[contains(@text,'Yes')]",
+        "OT_apply": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='Apply OT']",
+        
+        "apply_text": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Apply OT']",
+        
+        "select_time": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=2]",
+        "time": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.view.ViewGroup[@index='1']/android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@index=0]",
+
+        "text": "autotest appium",
+
+        "select_approval": "//*[contains(@text,'Select')]",
+        "search": "//*[contains(@text,'Please insert keyword to search')]",
+        "search_text": "Auto",
+
+        "approval_user": "//*[contains(@text,'AutomationTest ()')]",
+        "request_button": "//*[contains(@text,'Request')]",
+
+        "apply_OT": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='9']/android.view.ViewGroup[@index='1']/android.widget.TextView[@text='APPLY OT']"
+
+    },
+
+    "admin":{
+        "Admin": "//android.view.ViewGroup[@index='1']//android.widget.Button[@index='3']//android.widget.TextView[@text='Admin']",
+        "homepage": "//android.view.ViewGroup[@index='1']//android.widget.Button[@index='0']//android.widget.TextView[@text='Home']",
+  
+        "GPS_settings":{
+            "back": "//android.view.ViewGroup[@index='0']/android.widget.ImageView",
+            "add_gps": "//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']/android.widget.TextView[@index=0]",
+            "popup": "//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Yes']",
+
+            "button_save": "//*[contains(@text,'Save')]",
+    
+            "search": "//*[contains(@text,'Please input a address')]",
+            "search_text": "400 nguyen thi thap",
+
+            "list": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=1]",
+            "search_input": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='400 Nguyễn Thị Thập, Tân Quy, District 7, Ho Chi Minh City, Vietnam']",
+            "location": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']//android.widget.EditText[@index=1]",
+            "location_text": "hr-GPS ",
+            "workPlace": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index=4]",
+            "workPlace_input": "//*[contains(@text,'Viet Nam')]",
+            "close_save": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+
+            "location_text_edit": "hanbiro_auto_edit ",
+
+            "delete": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Delete']",
+            "accept_delete": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Yes']"
+        }, 
+        
+        "WIFI_settings":{
+            "add_wifi": "//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']/android.widget.TextView[@index=0]",
+            "wifi_name": "//*[contains(@text,'JS VINA')]",
+            "button_next":[
+                "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Next']",
+                "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Next']"
+            ],
+            "workPlace": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index=4]",
+            "workPlace_input": "//*[contains(@text,'Vietnam Office')]",
+            "close_popup": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+            "complete": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Complete']",
+
+            "delete": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Delete']",
+            
+            "wifi_text": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[1]",
+            "": ""
+            
+        },
+
+        "BEACON_settings":{
+            "edit": "//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']//android.widget.TextView[@index=0]",
+            "edit_name": "//android.view.ViewGroup[@index='2']//android.widget.EditText[@index=1]",
+            "name": "Hanbiro VN "
+        }
+        
+    },
+    
+    "view_noti":{
+        "noti": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=' ']//android.view.ViewGroup[@index='3']/android.widget.TextView[@index=0]",
+        "back_homepage": "//android.view.ViewGroup[@index='0']/android.widget.ImageView",
+        "": ""
+    },
+
+    "settings":{
+        "settings_button": "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=4]",
+        "language": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='Change Language']",
+        "language_text": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='2']/android.widget.TextView[@index=1]"
+    },
+
+    "event":{
+        "timecard": "//android.view.ViewGroup[@index='1']//android.widget.Button[@index='1']//android.widget.TextView[@text='Timecard']",
+        "timesheet": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Timesheet']",
+        "title_timesheet": "//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Timesheet']",
+        "add": "//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='2']//android.widget.TextView[@index=0]",
+        "title": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Add event']",
+        "input_title": "//*[contains(@text,'Please input data.')]",
+        "title_text": "auto_appium",
+        "choose_event": "//android.view.ViewGroup[@index='3']/android.widget.TextView[@text='Choose Event']",
+        "type_event": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Education']",
+        "back_add": "//android.view.ViewGroup[@index='0']//android.widget.ImageView",
+        
+        "select_color": "//android.widget.HorizontalScrollView[@index='5']//android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index=7]", 
+
+        "location_text": "hanbiro",
+        "memo_text": "hanbiro_memo",
+
+        "button_save": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Save']",
+        "popup": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@index=2]",
+        "close_popup": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']"
+    },
+    "TimeCard":{
+        "timesheet_daily":{
+            "next": "//android.view.ViewGroup[@index='0']//androidx.viewpager.widget.ViewPager[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=2]",
+            "prev": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=0]",
+            "calendar": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=1]",
+            "select_date": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Select']",
+
+            "policy": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Work Policy']",
+            "date": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']/android.widget.TextView[@index=0]"
+        },
+
+        "timesheet_list":{
+            "next": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index=2]",
+            "prev": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index=0]",
+            "calendar": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=1]",
+            "select_date": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Select']",
+
+            "list": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='LIST']",
+    
+            "sort": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']/android.view.ViewGroup[@index=0]",
+            "list_sort": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index=0]//android.view.ViewGroup[@index='0']",
+
+            "week_1": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='1st Week']",
+            "week_2": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='2nd Week']",
+            "week_3": "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='3rd Week']",
+            "week_4": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='4th Week']",
+            "week_5": "//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='5th Week']",
+
+            "week_2_text": "//androidx.viewpager.widget.ViewPager[@index='1']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='4']/android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index='0']/android.widget.TextView[@text='TOTAL OF 2ND WEEK']",
+            "week_3_text": "//androidx.viewpager.widget.ViewPager[@index='1']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='4']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='TOTAL OF 3RD WEEK']",
+            "week_4_text": "//androidx.viewpager.widget.ViewPager[@index='1']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='4']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='TOTAL OF 4TH WEEK']",
+            "week_5_text": "//androidx.viewpager.widget.ViewPager[@index='1']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='4']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='TOTAL OF 5TH WEEK']",
+            "": ""
+        },
+
+        "timesheet_calendar":{
+            "calendar": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='CALENDAR']",
+
+            "next": "//android.view.ViewGroup[@index='0']//androidx.viewpager.widget.ViewPager[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=2]",
+            "prev": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=0]",
+            "calendar_select": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=1]",
+            "select_date": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Select']",
+            "": ""
+        },
+
+        "title": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Timecard']",
+
+        "report_monthly":{
+            "MT_report": "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Report']",
+            "schedule_working": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Scheduled working day']",
+            "count_schedule_working": "//android.view.ViewGroup[@index='0']//androidx.viewpager.widget.ViewPager[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']/android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index='1']/android.widget.TextView[@index=0]",
+            
+            "events": "//android.view.ViewGroup[@index='0']//android.widget.HorizontalScrollView[@index='1']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Events']",
+            "clockin": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='Clock-In']",
+            "count_clockin": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']/android.widget.TextView[@index=0]",
+            
+            "working_status": "//android.view.ViewGroup[@index='0']//android.widget.HorizontalScrollView[@index='1']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='Working status']",
+            "workingtime": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='Working time']",
+            "count_workingtime": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']/android.widget.TextView[@index=0]",
+            
+            "": ""
+        },
+
+        "report_weekly":{
+            "weekly": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='WEEKLY']",
+            
+            "next": "//android.widget.HorizontalScrollView[@index='0']//android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index=2]",
+            "prev": "//android.widget.HorizontalScrollView[@index='0']//android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index=0]",
+            "calendar": "//android.widget.HorizontalScrollView[@index='0']//android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index=1]",
+            "selectdate": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Select']"
+
+        },
+
+        "report_list":{
+            "list": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='LIST']",
+          
+            "": ""
+        },
+        
+        "daily":{
+            "daily_CT": "//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='Daily Status']"
+        },
+
+        "weekly_status":{
+            "weekly_status_CT": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.widget.TextView[@text='Weekly Status']",
+            "week_title": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Weekly Status']",
+
+            "sort_week": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=0]",
+            "list": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index=0]",
+
+            "week_1": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='1st Week']",
+            "week_2": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='2nd Week']",
+            "week_3": "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='3rd Week']",
+            "week_4": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='4th Week']",
+            "week_5": "//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='5th week']",
+            "week_6": "//android.view.ViewGroup[@index='5']//android.widget.TextView[@text='6th Week']",
+
+            "user": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=2]",
+
+            "search": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=1]",
+
+            "date_calendar": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.TextView[1]",
+            
+            "view_detail": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']/android.view.ViewGroup[@index='4']//android.widget.TextView[@text='View detail']",
+            "date": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']/android.widget.TextView[@index=0]",
+            "back": "//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']/android.widget.ImageView[@index=0]",
+            "": ""
+        },
+
+        "timeline":{
+            "timeline_CT": "//android.view.ViewGroup[@index='6']//android.widget.TextView[@text='Time Line']",
+            "timeline_title": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Time Line']",
+            "sort_timeline": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='0']//android.widget.TextView[@index=0]",
+            
+            "clockin": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Clock-In']",
+            "tardin": "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Tardiness']",
+            "clockout": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Clock-Out']",
+            "auto_clockout": "//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='Automatically Clock-out']",
+            "outside": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Outside']",
+            "meeting": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Meeting']",
+            "edu": "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Education']",
+            "business": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Business Trip']",
+            "working_remote": "//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='Working remotely']",
+            "working": "//android.view.ViewGroup[@index='5']//android.widget.TextView[@text='Working']",
+
+            "search": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']//android.widget.TextView[@index=0]",
+            
+            "": ""
+        },
+
+        "report":{
+            "report_CT": "//android.view.ViewGroup[@index='7']//android.widget.TextView[@text='Report']",
+            "report_title": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Report']",
+
+            "search": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=2]",
+            
+            "detail": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='View detail']",
+            "back": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']/android.widget.ImageView[@index=0]",
+            
+            "view_by_event": "//android.widget.HorizontalScrollView[@index='0']//android.widget.TextView[@text='View By Event']",
+    
+            "": ""
+        },
+
+        "approval":{
+            "approval_CT": "//android.view.ViewGroup[@index='8']//android.widget.TextView[@text='Approval']",
+            "approval_title": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Approval']",
+
+            "select_user": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=2]",
+            "filter_type": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]//android.widget.TextView[@index=0]",
+            "detail": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']/android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']/android.widget.TextView[@text='Detail']",
+            
+            "type": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=1]",
+            "event": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Event']",
+            "clockin_out": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='Clock in/out']",
+            "workplan": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='3']/android.widget.TextView[@text='Work Plan']",
+            "overtime": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='4']/android.widget.TextView[@text='Over Time']",           
+            
+            "status": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]",
+            "pending": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Pending']",
+            "approved": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='Approved']",
+            "reject": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]//android.view.ViewGroup[@index='3']/android.widget.TextView[@text='Rejected']",
+            "cancel": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]//android.view.ViewGroup[@index='4']/android.widget.TextView[@text='Cancelled']",
+            "expired": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]//android.view.ViewGroup[@index='5']/android.widget.TextView[@text='Expired']",
+            "auto_reject": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]//android.view.ViewGroup[@index='6']/android.widget.TextView[@text='Auto Rejected']",
+            "progressing": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]//android.view.ViewGroup[@index='7']/android.widget.TextView[@text='Progressing']",
+
+            "peroid": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=5]",
+            "today": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=5]//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Today']",
+            "this_week": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=5]//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='This Week']",
+            "this_month": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=5]//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='This Month']",
+            "display_time": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='1']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=5]//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Duration display time']",
+
+            "back": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']/android.widget.ImageView[@index=0]",
+
+            "approval_line": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']/android.view.ViewGroup[@index=0]",
+
+            "select": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=0]",
+            "approve": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='APPROVE']",
+            "reject_bt": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='REJECT']",
+            "close": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+            "status_text": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=3]",
+            
+
+            "user": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='2']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='quynh1']",
+            
+            "": ""
+        }
+
+    },
+
+    "access_pages_vacation":{
+        "request_vacation":{
+            "vacation_information": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']//android.widget.TextView[@index=0]",
+            "vacation_information_text": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Vacation information']",
+            "back": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']/android.widget.ImageView[@index=0]",
+            
+            "": ""
+        }, 
+        
+        "my_vacation_status":{
+            "vacation_status": "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='My Vacation Status']",
+            "sort_status": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']//android.widget.TextView[@index=0]",
+            
+            "list_sort": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='All']",
+            "sort_request": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Request']",
+            "sort_processing": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Processing']",
+            "sort_complete": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Completed']",
+            
+            "vacation_information": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Vacation information']",
+            "sort_vacation": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='All']",
+            
+            "sort_vacation_other": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Other']",
+            "filter": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='0']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=3]",
+            
+            "vacation_history": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='VACATION HISTORY']",
+            
+            "request_holiday": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@index=0]"
+        },
+
+        "view_cc":{
+            "viewcc": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='View CC']",
+            "sort": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']//android.widget.TextView[@index='0']",
+            "sort_request": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']/android.widget.TextView[@text='Request']",
+            "sort_progressing": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='2']/android.widget.TextView[@text='Progressing']",
+            "sort_complete": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='3']/android.widget.TextView[@text='Completed']",
+            
+            "": ""
+        },
+
+        "vacation_schedule":{
+            "vacationschedule": "//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='Vacation Schedule']",
+            "filter": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Filters']",
+            "select_dept": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Select Department']",
+            
+            "dept_select": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[3]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup",
+            
+            "button_add": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='ADD']",
+            "title": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.widget.TextView[@text='SELECT DEPARTMENT']",
+            
+            "button_save": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='SAVE']",
+            "close": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+            
+            "next": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='0']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index=2]",
+            "prev": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='0']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index=0]",
+            "calendar_select": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.widget.TextView",
+    
+            "": ""
+        },
+
+        "vacation_approve":{
+            "vacationapprove": "//android.view.ViewGroup[@index='6']//android.widget.TextView[@text='Vacation Approve']",
+
+            "status": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=0]",
+            "status_request": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Request']",
+            "status_waiting": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Waiting']",
+            "status_processing": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Progressing']",
+            "status_complete": "//android.view.ViewGroup[@index='0']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='Completed']",
+            
+            "search": "//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index=1]",
+
+            "cancel_request": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='CANCEL REQUEST']",
+           
+            "": ""
+        },
+
+        "vacation_per_user":{
+            "vacationperuser": "//android.view.ViewGroup[@index='7']//android.widget.TextView[@text='Vacations Per User']",
+            "search": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']/android.widget.TextView[@index=0]",
+            
+            "view_detail": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='0']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='View detail']",
+            "": ""
+        }
+    },
+
+    "vacation":{
+        "button_vacation": "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=2]//android.widget.TextView[@text='Vacation']",
+        
+        "add_file": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='8']//android.widget.TextView[@text='Add File']",
+        "choose_photo": "//android.widget.TextView[@text='Choose Photo']",
+        "choose_gallery": "com.hanbiro.hanbirohrm:id/nameTextViewFromMediaChooserBucketRowView",
+        "select_photo": "//android.widget.RelativeLayout[@index=0]",
+        "select": "com.hanbiro.hanbirohrm:id/mnu_save",
+        "": "",
+        "": "",
+        "": "",
+        "": "",
+
+
+        "my_vacation":{
+            "request": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Request vacation']",
+            "AM": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='5']//android.widget.TextView[@text='Half Day (AM)']",
+            "PM": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='6']//android.widget.TextView[@text='Half Day (PM)']",
+            "Unit": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='7']//android.widget.TextView[@text='Hour Unit']",
+            "calendar": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='6']//android.view.ViewGroup[@index=2]", 
+            
+            "select_calendar": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Select']",
+
+            "vacation_datetext": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.widget.ScrollView/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.TextView[4]",
+            
+            "CC": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='12']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='Select CC']",
+            "save_cc": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Save']",
+
+            "input_test": "appium vacation",
+            "button_request": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='REQUEST']",
+            "button_close": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+
+
+            "viewdetail": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='8']//android.widget.TextView[@text='View detail']",
+
+            "vacation_date_text": "",
+            "reason_text": "//android.view.ViewGroup[@index='1']//android.widget.TextView[@index=8]",
+
+            "request_date_text": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=5]",
+            "detail_vacation_text": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']//android.widget.TextView[@index=1]",
+            
+            "delete_vacation": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='8']//android.view.ViewGroup[@index='1']//android.widget.TextView",
+            "back": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.widget.ImageView[@index=0]",
+
+            "OK_cancel_request": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='OK']",
+            "cancel_request_success": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+            
+
+            "request_fail": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[1]",
+            "saturday_fail": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.TextView[2]",
+            "close_fail": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup",
+            
+            "vacation_text": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Vacation']",
+
+            "name_request": "//android.view.ViewGroup[@index='1']//android.widget.ScrollView[@index='0']/android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.widget.TextView[@index=1]",
+
+            "vacation_name": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='3']/android.widget.TextView[@index=1]",
+            "back_vacation": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='0']//android.widget.ImageView[@index=0]",
+            "request_vacation_text": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Request vacation']",
+            
+            "": "",
+            
+
+            "vacation_status":{
+                "vacationstatus": "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='My Vacation Status']",
+                "cancel_request": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='8']//android.view.ViewGroup[@index='1']//android.widget.TextView",
+                "button_ok": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='OK']",
+                "text_request": "//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='5']//android.widget.TextView[@text='User cancel']"            
+            },
+
+            "view_cc":{
+                "viewcc": "//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='View CC']",
+                "viewcc_text": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='View CC']",
+                "CC_detail": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']/android.widget.TextView[@index=2]",
+                "": ""
+            },
+
+            "vacation_schedule":{
+                "vacationschedule": "//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='Vacation Schedule']",
+                "vacation_schedule_title": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Vacation Schedule']", 
+                "request_vacation_text": "//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Request vacation']",
+
+                "request_vacation": "//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='2']/android.widget.TextView[@index=0]",
+                "schedule_name": "//android.view.ViewGroup[@index='0']/android.view.ViewGroup[@index=2]",
+                "": ""
+            }
+        },
+
+        "manage_processing":{
+            "vacation_approve": "//android.view.ViewGroup[@index='6']//android.widget.TextView[@text='Vacation Approve']",
+            "vacation_request": "",
+            "vacation_approve_text": "//hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.widget.TextView",
+            
+            "cancel_request": "",
+            "vacation_request_cancel": "",
+
+            "vacation_peruse": "",
+            "vacation_peruse_text": "",
+            "viewdetail": "",
+            "title_vacation": "",
+            "": ""
+        },
+        "vacation_approve":{
+            "setting_button": "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=4]",
+            "logout": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='LOG OUT']",
+            "user_name": "//android.view.ViewGroup[@index='4']//android.widget.EditText",
+
+            "search": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index=1]",
+            "select_user": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index=0]",
+           
+            "approve": "//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='APPROVE']",
+            "accept_approve": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='4']//android.widget.TextView[@text='Approve']",
+            "close_popup": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.TextView[@text='Close']",
+            "approve_text": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.widget.TextView[@text='Approved']",
+
+            "cancel_request": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index='1']//android.widget.TextView[@text='CANCEL REQUEST']",
+
+            "status": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index=0]",
+            "request": "//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='1']//android.view.ViewGroup[@index=0]",
+
+            "approve_cancel": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='2']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='APPROVE CANCELLATION']",
+            "accept_approve_cancel": "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.view.ViewGroup[@index='0']//android.widget.TextView[@text='Approve Cancellation']",
+            
+            "": ""
+        }
+    },
+
+    "testcase_result":{
+        "timecard": {
+            "clock_in_GPS":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Clock In",
+                    "status": "Pass",
+                    "description": "Clock In with GPS successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Clock In",
+                    "status": "Fail",
+                    "description": "Clock In with GPS fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "clock_out_GPS":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Clock OUT",
+                    "status": "Pass",
+                    "description": "Clock OUT with GPS successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Clock OUT",
+                    "status": "Fail",
+                    "description": "Clock OUT with GPS fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "apply_OT_GPS":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Apply OT",
+                    "status": "Pass",
+                    "description": "Apply OT with GPS successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Apply OT",
+                    "status": "Fail",
+                    "description": "Apply OT with GPS fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "apply_midnight_GPS":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Apply Midnight",
+                    "status": "Pass",
+                    "description": "Apply Midnight with GPS successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Apply Midnight",
+                    "status": "Fail",
+                    "description": "Apply Midnight with GPS fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "add_GPS":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Add GPS",
+                    "status": "Pass",
+                    "description": "Add GPS successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Add GPS",
+                    "status": "Fail",
+                    "description": "Add GPS fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "edit_GPS":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Edit GPS",
+                    "status": "Pass",
+                    "description": "Edit GPS successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Edit GPS",
+                    "status": "Fail",
+                    "description": "Edit GPS fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "delete_GPS":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Delete GPS",
+                    "status": "Pass",
+                    "description": "Delete GPS successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "GPS",
+                    "testcase": "Delete GPS",
+                    "status": "Fail",
+                    "description": "Delete GPS fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "clock_in_Wifi":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Clock In",
+                    "status": "Pass",
+                    "description": "Clock In with Wifi successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Clock In",
+                    "status": "Fail",
+                    "description": "Clock In with Wifi fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "clock_out_Wifi":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Clock OUT",
+                    "status": "Pass",
+                    "description": "Clock OUT with Wifi successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Clock OUT",
+                    "status": "Fail",
+                    "description": "Clock OUT with Wifi fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "apply_OT_Wifi":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Apply OT",
+                    "status": "Pass",
+                    "description": "Apply OT with Wifi successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Apply OT",
+                    "status": "Fail",
+                    "description": "Apply OT with Wifi fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "apply_midnight_Wifi":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Apply Midnight",
+                    "status": "Pass",
+                    "description": "Apply Midnight with Wifi successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Apply Midnight",
+                    "status": "Fail",
+                    "description": "Apply Midnight with Wifi fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "add_Wifi":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Add Wifi",
+                    "status": "Pass",
+                    "description": "Add Wifi successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Add Wifi",
+                    "status": "Fail",
+                    "description": "Add Wifi fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "edit_Wifi":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Edit Wifi",
+                    "status": "Pass",
+                    "description": "Edit Wifi successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Edit Wifi",
+                    "status": "Fail",
+                    "description": "Edit Wifi fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "delete_Wifi":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Delete Wifi",
+                    "status": "Pass",
+                    "description": "Delete Wifi successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Wifi",
+                    "testcase": "Delete Wifi",
+                    "status": "Fail",
+                    "description": "Delete Wifi fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "clock_in_Beacon":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Clock In",
+                    "status": "Pass",
+                    "description": "Clock In with Beacon successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Clock In",
+                    "status": "Fail",
+                    "description": "Clock In with Beacon fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "clock_out_Beacon":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Clock OUT",
+                    "status": "Pass",
+                    "description": "Clock OUT with Beacon successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Clock OUT",
+                    "status": "Fail",
+                    "description": "Clock OUT with Beacon fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "apply_OT_Beacon":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Apply OT",
+                    "status": "Pass",
+                    "description": "Apply OT with Beacon successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Apply OT",
+                    "status": "Fail",
+                    "description": "Apply OT with Beacon fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "apply_midnight_Beacon":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Apply Midnight",
+                    "status": "Pass",
+                    "description": "Apply Midnight with Beacon successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Apply Midnight",
+                    "status": "Fail",
+                    "description": "Apply Midnight with Beacon fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "add_Beacon":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Add Beacon",
+                    "status": "Pass",
+                    "description": "Add Beacon successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Add Beacon",
+                    "status": "Fail",
+                    "description": "Add Beacon fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "edit_Beacon":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Edit Beacon",
+                    "status": "Pass",
+                    "description": "Edit Beacon successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Edit Beacon",
+                    "status": "Fail",
+                    "description": "Edit Beacon fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "delete_Beacon":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Delete Beacon",
+                    "status": "Pass",
+                    "description": "Delete Beacon successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Beacon",
+                    "testcase": "Delete Beacon",
+                    "status": "Fail",
+                    "description": "Delete Beacon fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "noti":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Notification",
+                    "testcase": "View List",
+                    "status": "Pass",
+                    "description": "View list notification successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Notification",
+                    "testcase": "View List",
+                    "status": "Fail",
+                    "description": "View list notification fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "event":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Event",
+                    "testcase": "Add event",
+                    "status": "Pass",
+                    "description": "Add event successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Event",
+                    "testcase": "Add event",
+                    "status": "Fail",
+                    "description": "Add event fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "branch_name":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Branch name",
+                    "testcase": "Branch name - IN - OUT",
+                    "status": "Pass",
+                    "description": "Add Branch name - IN - OUT successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Branch name",
+                    "testcase": "Branch name - IN - OUT",
+                    "status": "Fail",
+                    "description": "Add Branch name - IN - OUT fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "crash_app_Timesheet":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app My Timecard",
+                    "testcase": "My Timecard > Timesheet",
+                    "status": "Pass",
+                    "description": "Check crash app function of menu My Timecard > Timesheet successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app My Timecard",
+                    "testcase": "My Timecard > Timesheet",
+                    "status": "Fail",
+                    "description": "Check crash app function of menu My Timecard > Timesheet fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "crash_app_Report":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app My Timecard",
+                    "testcase": "My Timecard > Report",
+                    "status": "Pass",
+                    "description": "Check crash app function of menu My Timecard > Report successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app My Timecard",
+                    "testcase": "My Timecard > Report",
+                    "status": "Fail",
+                    "description": "Check crash app function of menu My Timecard > Report fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "crash_app_daily_status":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Daily status",
+                    "status": "Pass",
+                    "description": "Check crash app function of menu Company Timecard > Daily status successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Daily status",
+                    "status": "Fail",
+                    "description": "Check crash app function of menu Company Timecard > Daily status fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "crash_app_weekly_status":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Weekly status",
+                    "status": "Pass",
+                    "description": "Check crash app function of menu Company Timecard > Weekly status successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Weekly status",
+                    "status": "Fail",
+                    "description": "Check crash app function of menu Company Timecard > Weekly status fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "crash_app_time_line":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Time line",
+                    "status": "Pass",
+                    "description": "Check crash app function of menu Company Timecard > Time line successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Time line",
+                    "status": "Fail",
+                    "description": "Check crash app function of menu Company Timecard > Time line fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "crash_app_report":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Report",
+                    "status": "Pass",
+                    "description": "Check crash app function of menu Company Timecard > Report successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Report",
+                    "status": "Fail",
+                    "description": "Check crash app function of menu Company Timecard > Report fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "crash_app_Approval":{
+                "pass":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Approval",
+                    "status": "Pass",
+                    "description": "Check crash app function of menu Company Timecard > Approval successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Timecard",
+                    "sub_menu": "Crash app Company Timecard",
+                    "testcase": "Company Timecard > Approval",
+                    "status": "Fail",
+                    "description": "Check crash app function of menu Company Timecard > Approval fail",
+                    "tester": "NQuynh"
+                }
+            }
+        },
+
+        "vacation":{
+            "request_vacation":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "Request vacation",
+                    "testcase": "Request vacation ",
+                    "status": "Pass",
+                    "description": "Request Vacation successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "Request vacation ",
+                    "testcase": "Request vacation ",
+                    "status": "Fail",
+                    "description": "Request Vacation fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "attach_file":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "Request vacation",
+                    "testcase": "Attach file",
+                    "status": "Pass",
+                    "description": "Attach file to vacation request successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "Request vacation",
+                    "testcase": "Attach file",
+                    "status": "Fail",
+                    "description": "Attach file to vacation request fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "cancel_request":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "My Vacation Status",
+                    "testcase": "Cancel request",
+                    "status": "Pass",
+                    "description": "Cancel request successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "My Vacation Status",
+                    "testcase": "Cancel request",
+                    "status": "Fail",
+                    "description": "Cancel request fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "delete_request_MC":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "My Vacation Status",
+                    "testcase": "Delete request",
+                    "status": "Pass",
+                    "description": "Delete request successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "My Vacation Status",
+                    "testcase": "Delete request",
+                    "status": "Fail",
+                    "description": "Delete request fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "approve_request":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "Vacation Approve",
+                    "testcase": "Approve request",
+                    "status": "Pass",
+                    "description": "Approve request successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "Vacation Approve",
+                    "testcase": "Approve request",
+                    "status": "Fail",
+                    "description": "Approve request fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "reject_request":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "Vacation Approve",
+                    "testcase": "Reject request",
+                    "status": "Pass",
+                    "description": "Reject request successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "Vacation Approve",
+                    "testcase": "Reject request",
+                    "status": "Fail",
+                    "description": "Reject request fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "approve_cancel":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "Vacation Approve",
+                    "testcase": "Approve cancel",
+                    "status": "Pass",
+                    "description": "Approve cancel successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "Vacation Approve",
+                    "testcase": "Approve cancel",
+                    "status": "Fail",
+                    "description": "Approve cancel fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "delete_request":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "Vacation Approve",
+                    "testcase": "Delete request",
+                    "status": "Pass",
+                    "description": "Delete request successfully",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "Vacation Approve",
+                    "testcase": "Delete request",
+                    "status": "Fail",
+                    "description": "Delete request fail",
+                    "tester": "NQuynh"
+                }
+            },
+
+            "crash":{
+                "pass":{
+                    "menu": "Vacation",
+                    "sub_menu": "Common",
+                    "testcase": "Crash",
+                    "status": "Pass",
+                    "description": "Check crash app function of menu vacation",
+                    "tester": "NQuynh"
+                },
+                "fail":{
+                    "menu": "Vacation",
+                    "sub_menu": "Common",
+                    "testcase": "Crash",
+                    "status": "Fail",
+                    "description": "Check crash app function of menu vacation fail",
+                    "tester": "NQuynh"
+                }
+            }
+        }
+    }
+}
