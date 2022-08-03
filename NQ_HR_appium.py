@@ -1773,3 +1773,15 @@ def approve_request():
         print("=> Cancel request fail")
         TesCase_LogResult(**data["testcase_result"]["vacation"]["approve_cancel"]["fail"])
 
+def check_notification():
+    request_vacation()
+    time.sleep(10)
+    driver.swipe(start_x=713, start_y=0, end_x=713, end_y=1189, duration=800)
+    Logging("- Sroll action bar")
+    noti_text = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.widget.FrameLayout//android.widget.TextView[@text='HanbiroHR']/android.widget.TextView//following-sibling::android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")))
+    # vacation_text = noti_text.text
+    # date_text = vacation_text.split(" ")[0]
+    Logging(noti_text)
+    # type_vacation = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["AM"])))
+    # type_text = type_vacation.text
+    # vacation_date_type = date_text + "(" + type_text + ")"
