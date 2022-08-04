@@ -21,7 +21,7 @@ from openpyxl.cell import Cell
 # Connect to Appium with the below desire capabilities
 # http://appium.io/docs/en/writing-running-appium/caps/
 dc = {
-    "deviceName": "R58M329GYVV",
+    "deviceName": "R58MC3QBSZT",
     "platformName": "Android",
     "app": "E:\\Quynh\\hr-app\\hanbiro-global-hr-app-v2.1.7.apk",
     "automationName": "UiAutomator2",
@@ -1778,10 +1778,9 @@ def check_notification():
     time.sleep(10)
     driver.swipe(start_x=713, start_y=0, end_x=713, end_y=1189, duration=800)
     Logging("- Sroll action bar")
-    noti_text = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.widget.FrameLayout//android.widget.TextView[@text='HanbiroHR']/android.widget.TextView//following-sibling::android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.TextView")))
-    # vacation_text = noti_text.text
-    # date_text = vacation_text.split(" ")[0]
-    Logging(noti_text)
-    # type_vacation = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["AM"])))
-    # type_text = type_vacation.text
-    # vacation_date_type = date_text + "(" + type_text + ")"
+    noti_text = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout//android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView[1]")))
+    vacation_text = noti_text.text
+    Logging(vacation_text)
+    user_text = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout//android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.TextView")))
+    user = user_text.text
+    Logging(user)
