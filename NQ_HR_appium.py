@@ -120,7 +120,7 @@ for log in logs:
         wb.save(log)
 
 def Logging(msg):
-    print(msg)
+    Logging(msg)
     log_msg = open(execution_log, "a")
     log_msg.write(str(msg) + "\n")
     log_msg.close()
@@ -170,20 +170,20 @@ def execution():
     try:
         checkcrashapp = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Domain']")))
         if checkcrashapp.is_displayed():
-            print("------- Login to app -------")
+            Logging("------- Login to app -------")
             # Input information for log-in
             WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Domain']")))
             driver.find_element_by_xpath(data["domain"]).send_keys(data["domain_name"])
-            print("- Input Domain")
+            Logging("- Input Domain")
             WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "//*[@text='ID']")))
             driver.find_element_by_xpath(data["id_app"]).send_keys(data["id_name"])
-            print("- Input ID")
+            Logging("- Input ID")
             WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Password']")))
             driver.find_element_by_xpath(data["password"]).send_keys(data["pass_input"])
-            print("- Input Password")
+            Logging("- Input Password")
             WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Login')]")))
             driver.find_element_by_xpath(data["button_login"]).click()
-            print("=> Click Log In button")
+            Logging("=> Click Log In button")
             driver.implicitly_wait(50)
 
             ''' * Check crash app done
@@ -196,41 +196,40 @@ def execution():
             # admin_GPS()
             # timecard()
             # settings()
-            # request_vacation()
             # vacation()
             # approve_request()
             check_notification()
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
     except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
 
 def clock_in():
-    print(" ")
-    print("------- Clock In -------")
+    Logging(" ")
+    Logging("------- Clock In -------")
     try:
         title_app = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,data["title"])))
         if title_app.text == 'GPS':
-            print("Clock in - GPS")
+            Logging("Clock in - GPS")
             try:
                 OT = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,data["clock_in"]["nightshift"])))
                 if OT.text == 'Night Shift':
-                    print("=> Work night shift")
+                    Logging("=> Work night shift")
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,data["OT"]["confirm_OT"]))).click()
-                    print("- Confirm OT / Work night shift")
+                    Logging("- Confirm OT / Work night shift")
                     time.sleep(5)
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,data["OT"]["OT_apply"]))).click()
-                    print("- Apply OT")
+                    Logging("- Apply OT")
                     time.sleep(5)
                     
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,data["OT"]["select_time"]))).click()
-                    print("- Select time")
+                    Logging("- Select time")
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,data["OT"]["time"]))).click()
                     time.sleep(5)
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Please input a reason to apply OT')]"))).send_keys(data["OT"]["text"])
-                    print("-> Input reason")
+                    Logging("-> Input reason")
 
                     driver.swipe(start_x=675, start_y=2458, end_x=675, end_y=2000, duration=800)
                     time.sleep(5)
@@ -241,80 +240,80 @@ def clock_in():
                         check_OT = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["OT"]["apply_text"])))
                         if check_OT.text == 'Apply OT':
                             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Close')]"))).click()
-                            print("=> Apply OT success")
+                            Logging("=> Apply OT success")
                             TesCase_LogResult(**data["testcase_result"]["timecard"]["apply_OT_GPS"]["pass"])
                         else:
-                            print("=> Crash app")
+                            Logging("=> Crash app")
                             TesCase_LogResult(**data["testcase_result"]["timecard"]["apply_OT_GPS"]["fail"])
                     except WebDriverException:
-                        print("=> Crash app")     
+                        Logging("=> Crash app")     
                         TesCase_LogResult(**data["testcase_result"]["timecard"]["apply_OT_GPS"]["fail"])   
                         exit(0)
                 else:
-                    print("=> Apply OT not display")
+                    Logging("=> Apply OT not display")
             except WebDriverException:
-                print("=> Apply OT not display")  
+                Logging("=> Apply OT not display")  
         
             try:
                 icon_clock_in = driver.find_element_by_xpath(data["clock_in"]["icon_clock_in_button"])
                 if icon_clock_in.is_displayed():
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH,data["clock_in"]["icon_clockin"]))).click()
-                    print("=> Clock In with GPS")
+                    Logging("=> Clock In with GPS")
                     try:
                         status_late = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["clock_in_late"])))
                         if status_late.text == 'Tardiness':
-                            print("=> Clock in late")
+                            Logging("=> Clock in late")
                             driver.find_element_by_xpath(data["clock_in"]["text_input"]).send_keys(data["clock_in"]["text"])
-                            print("- Input reason")
+                            Logging("- Input reason")
                             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Save')]")))
                             driver.find_element_by_xpath(data["clock_in"]["save_button"]).click()
-                            print("=> Save")
+                            Logging("=> Save")
                             TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_in_GPS"]["pass"])
                         else:
-                            print("=> Clock in on time") 
+                            Logging("=> Clock in on time") 
                             TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_in_GPS"]["pass"])
                             time.sleep(5)
                     except WebDriverException:
-                        print("=> Crash app")
+                        Logging("=> Crash app")
                         TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_in_GPS"]["fail"])
                         exit(0)
                 else:
-                    print(" Clock in button not display")
+                    Logging(" Clock in button not display")
                     time.sleep(5)
             except WebDriverException:
-                print("=> Clock in button not display")
+                Logging("=> Clock in button not display")
             time.sleep(5)
 
             try:
                 icon_clock_out = driver.find_element_by_xpath(data["clock_in"]["icon_breaktime"])
                 if icon_clock_out.is_displayed():
-                    print("=> Already clock in")
+                    Logging("=> Already clock in")
                     TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_in_GPS"]["pass"])
                 else:
-                    print("=> Break time button not display")
+                    Logging("=> Break time button not display")
                     TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_in_GPS"]["fail"])
             except WebDriverException:
-                print("=> Fail") 
+                Logging("=> Fail") 
                 TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_in_GPS"]["fail"])
         else:
-            print("=> .Crash app") 
+            Logging("=> .Crash app") 
             TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_in_GPS"]["fail"])
             time.sleep(5)
         
             
 
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["preview"]))).click()
-        print("- View preview date")
+        Logging("- View preview date")
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["next"]))).click()
-        print("- View next date")
+        Logging("- View next date")
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["calendar"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='0']//android.view.ViewGroup[@index='3']//android.widget.ScrollView[@index='0']//android.view.ViewGroup[@index='1']//android.widget.Button[@index=19]"))).click()
-        print("- Select date")
+        Logging("- Select date")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["select"]))).click()
     except WebDriverException:
-        print("=> Crash app")
+        Logging("=> Crash app")
         exit(0)
 
 def GPS():
@@ -322,246 +321,246 @@ def GPS():
     try:
         try:
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["IN"]))).click()
-            print("- Select IN on map")
+            Logging("- Select IN on map")
             time.sleep(5)
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["select_branch"]))).click()
-            print("- Select branch")
+            Logging("- Select branch")
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["close_popup"]))).click()
-            print("- Close popup")
+            Logging("- Close popup")
             time.sleep(5)
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["OUT"]))).click()
-            print("- Select OUT on map")
+            Logging("- Select OUT on map")
             time.sleep(5)
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["select_branch"]))).click()
-            print("- Select branch")
+            Logging("- Select branch")
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["close_popup"]))).click()
-            print("- Close popup")
+            Logging("- Close popup")
             time.sleep(5)
             TesCase_LogResult(**data["testcase_result"]["timecard"]["branch_name"]["pass"])
         except WebDriverException:
-            print("=> IN - OUT not display")
+            Logging("=> IN - OUT not display")
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Wifi')]"))).click()
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'GPS')]"))).click() 
-            print("- Change to wifi -> GPS") 
+            Logging("- Change to wifi -> GPS") 
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["IN"]))).click()
-            print("- Select IN on map")
+            Logging("- Select IN on map")
             time.sleep(5)
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["select_branch"]))).click()
-            print("- Select branch")
+            Logging("- Select branch")
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["close_popup"]))).click()
-            print("- Close popup")
+            Logging("- Close popup")
             time.sleep(5)
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["OUT"]))).click()
-            print("- Select OUT on map")
+            Logging("- Select OUT on map")
             time.sleep(5)
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["select_branch"]))).click()
-            print("- Select branch")
+            Logging("- Select branch")
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_in"]["close_popup"]))).click()
-            print("- Close popup")
+            Logging("- Close popup")
             TesCase_LogResult(**data["testcase_result"]["timecard"]["branch_name"]["pass"])
     except:
         TesCase_LogResult(**data["testcase_result"]["timecard"]["noti"]["fail"])
-        print("- Can't select branch name")
+        Logging("- Can't select branch name")
 
 def viewNoti():
-    print(" ")
-    print("------- View notification -------")
+    Logging(" ")
+    Logging("------- View notification -------")
     try:
         time.sleep(10)
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["view_noti"]["noti"]))).click()
-        print("=> Click view notification")
+        Logging("=> Click view notification")
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["view_noti"]["back_homepage"]))).click()
-        print("=> Back to homepage")       
+        Logging("=> Back to homepage")       
         time.sleep(5)
         TesCase_LogResult(**data["testcase_result"]["timecard"]["noti"]["pass"])
     except:
-        print("- Can't view noti")
+        Logging("- Can't view noti")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["noti"]["fail"])
     
 def break_time():
     ''' Break time button '''
     try:
-        print("** Check break time - clock out")
+        Logging("** Check break time - clock out")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["admin"]["homepage"]))).click()
         text_breaktime = driver.find_element_by_xpath(data["clock_in"]["breaktime_text"])
         if text_breaktime.text == 'Break Time':
-            print("=> Start break time")
+            Logging("=> Start break time")
             driver.find_element_by_xpath(data["clock_in"]["icon_breaktime"]).click()
             time.sleep(30)
             ''' End break time '''
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'END BREAK TIME')]")))
             driver.find_element_by_xpath(data["clock_in"]["end_break_time"]).click()
             time.sleep(10)
-            print("=> End Break time")
+            Logging("=> End Break time")
         else: 
-            print("=> Already clock out")
+            Logging("=> Already clock out")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["admin"]["homepage"]))).click()
         time.sleep(5)
     except WebDriverException:
-        print("=> Already clock out") 
+        Logging("=> Already clock out") 
         time.sleep(5)
 
 def clock_out():
     try:
-        print("** Check clock out")
+        Logging("** Check clock out")
         text_breaktime = driver.find_element_by_xpath(data["clock_in"]["breaktime_text"])
         if text_breaktime.text == 'Break Time':
             clockout = driver.find_element_by_xpath(data["clock_out"]["icon_clock_out_button"])
             if clockout.is_displayed():
                 clockout.click()
-                print("=> Click clock out")
+                Logging("=> Click clock out")
                 time.sleep(2)
                 ''' Check clock out time '''
                 popup = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_out"]["status"])))
                 if popup.text == 'Leave Early':
-                    print("- Clock out early")
+                    Logging("- Clock out early")
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Please enter your reason')]"))).send_keys(data["clock_in"]["text"])
-                    print("- Input reason")
+                    Logging("- Input reason")
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_out"]["save"]))).click()
-                    print("=> Save")
+                    Logging("=> Save")
                     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["clock_out"]["close"]))).click()
-                    print("- Close")
+                    Logging("- Close")
                     TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_out_GPS"]["pass"])
                 else:
-                    print("=> Clock out on time")
+                    Logging("=> Clock out on time")
                     driver.find_element_by_xpath(data["clock_out"]["close_popup"]).click()
                     TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_out_GPS"]["pass"])
         else:
-            print("=> Already clock out")
+            Logging("=> Already clock out")
             TesCase_LogResult(**data["testcase_result"]["timecard"]["clock_out_GPS"]["pass"])
     except WebDriverException:
-        print("=> Already clock out") 
+        Logging("=> Already clock out") 
         time.sleep(5)
 
 def clock_out_WF():
     try:
-        print("** Check clock out")
+        Logging("** Check clock out")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Wifi')]"))).click()
-        print("=> Change to wifi")
+        Logging("=> Change to wifi")
         time.sleep(10)
         clock_out()
     except WebDriverException:
-        print("=> Already clock out") 
+        Logging("=> Already clock out") 
     time.sleep(5)
 
 def clock_out_BC():
     try:
-        print("** Check clock out")
+        Logging("** Check clock out")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Beacon')]"))).click()
-        print("=> Change to Beacon")
+        Logging("=> Change to Beacon")
         clock_out()
     except WebDriverException:
-        print("=> Already clock out") 
+        Logging("=> Already clock out") 
         time.sleep(5)
 
 def add_event():
     try:
-        print(" ")
-        print("------- Add event -------")
+        Logging(" ")
+        Logging("------- Add event -------")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["timecard"]))).click()
-        print("- Select time card")
+        Logging("- Select time card")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["timesheet"]))).click()
-        print("- Select time sheet")
+        Logging("- Select time sheet")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["add"]))).click()
-        print("- Select add")
+        Logging("- Select add")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Please input data.')]"))).send_keys(data["event"]["title_text"])
-        print("- Input title")
+        Logging("- Input title")
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["choose_event"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["type_event"]))).click()
-        print("- Choose event")
+        Logging("- Choose event")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["select_color"]))).click()
-        print("- Select color")
+        Logging("- Select color")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Please input data.')]"))).send_keys(data["event"]["location_text"])
-        print("- Input location")
+        Logging("- Input location")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Please add a memo.')]"))).send_keys(data["event"]["memo_text"])
-        print("- Input memo")
+        Logging("- Input memo")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["button_save"]))).click()
         TesCase_LogResult(**data["testcase_result"]["timecard"]["event"]["pass"])
     except:
-        print("- Can't create event")
+        Logging("- Can't create event")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["event"]["fail"])
 
-    print("** Check event use approval type")
+    Logging("** Check event use approval type")
     try:
         approval_type = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["popup"])))
         if approval_type.text == '[Approved] Your request approval request has been approved automatically':
-            print("=> Use approval type: Automatic approval")
+            Logging("=> Use approval type: Automatic approval")
 
         elif approval_type.text == 'The approval request has been submitted. Please wait until the approval is completed.':
-            print("=> Use approval type: Approval Line")
+            Logging("=> Use approval type: Approval Line")
 
         elif approval_type.text == 'The approval request has been delivered to Head of Department. Please wait until the approval is completed.':
-            print("=> Use approval type: Head Dept.")
+            Logging("=> Use approval type: Head Dept.")
 
         elif approval_type.text == 'The approval request has been delivered to Timecard Managers. Please wait until the approval is completed.':
-            print("=> Use approval type: Timecard Manager")
+            Logging("=> Use approval type: Timecard Manager")
         else:
-            print("=> Use approval type: Dept. Manager")
+            Logging("=> Use approval type: Dept. Manager")
     except WebDriverException:
-        print("=> Use approval type: Dept. Manager") 
+        Logging("=> Use approval type: Dept. Manager") 
 
     driver.find_element_by_xpath(data["event"]["close_popup"]).click()
-    print("=> Save event")
+    Logging("=> Save event")
     time.sleep(5)
 
 def admin_GPS():
-    print(" ")
+    Logging(" ")
     try:
-        print("------- Add GPS -------")
+        Logging("------- Add GPS -------")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["admin"]["Admin"]))).click()
-        print("- Select admin")
+        Logging("- Select admin")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'GPS Setting')]"))).click()
-        print("- Click GPS Setting")
+        Logging("- Click GPS Setting")
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["admin"]["GPS_settings"]["add_gps"]))).click()
-        print("- Add GPS")
+        Logging("- Add GPS")
 
         try:
             check_gps = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["admin"]["GPS_settings"]["popup"])))
             if check_gps.is_displayed():
                 check_gps.click()
             else:
-                print("=> Crash app")
+                Logging("=> Crash app")
         except WebDriverException:
-            print("=> Crash app")        
+            Logging("=> Crash app")        
             exit(0)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Please input a address')]")))
         address = driver.find_element_by_xpath(data["admin"]["GPS_settings"]["search"])
         address.click()
         address.send_keys(data["admin"]["GPS_settings"]["search_text"])
-        print("- Search address")
+        Logging("- Search address")
 
         driver.hide_keyboard()
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["admin"]["GPS_settings"]["list"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'400 Nguyễn Thị Thập, Tân Quy, District 7, Ho Chi Minh City, Vietnam')]"))).click()
-        print("- Select address")
+        Logging("- Select address")
 
         location = driver.find_element_by_xpath(data["admin"]["GPS_settings"]["location"])
         location.clear()
         location.send_keys(data["admin"]["GPS_settings"]["location_text"] + str(n))
-        print("- Input location")
+        Logging("- Input location")
         driver.find_element_by_xpath(data["admin"]["GPS_settings"]["workPlace"]).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'VietNam')]"))).click()
         #driver.find_element_by_xpath(data["admin"]["GPS_settings"]["workPlace_input"]).click()
-        print("- Select work Place")
+        Logging("- Select work Place")
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Save')]"))).click()
         driver.find_element_by_xpath(data["admin"]["GPS_settings"]["close_save"]).click()
-        print("- Save")
+        Logging("- Save")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["add_GPS"]["pass"])
 
         time.sleep(5)
     except:
-        print("- Can't add GPS")
+        Logging("- Can't add GPS")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["add_GPS"]["fail"])
 
     try:
-        print("- Search GPS")
+        Logging("- Search GPS")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Please enter your keyword.')]"))).click()
         
         ''' Send key "hr-GPS" from keyboard mobile '''
@@ -574,71 +573,71 @@ def admin_GPS():
         driver.press_keycode(47)
         driver.press_keycode(66)
 
-        print("** Edit GPS")
+        Logging("** Edit GPS")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'hr-GPS')]"))).click()
         location = driver.find_element_by_xpath(data["admin"]["GPS_settings"]["location"])
         location.clear()
         location.send_keys(data["admin"]["GPS_settings"]["location_text_edit"] + str(n))
-        print("- Input edit location")
+        Logging("- Input edit location")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Save')]")))
         driver.find_element_by_xpath(data["admin"]["GPS_settings"]["button_save"]).click()
         driver.find_element_by_xpath(data["admin"]["GPS_settings"]["close_save"]).click()
-        print("- Save")
+        Logging("- Save")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["edit_GPS"]["pass"])
         time.sleep(10)
     except:
-        print("- Can't edit GPS")
+        Logging("- Can't edit GPS")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["edit_GPS"]["fail"])
 
     try:
-        print("** Delete GPS")
+        Logging("** Delete GPS")
         driver.swipe(start_x=1000, start_y=450, end_x=500, end_y=450, duration=800)
 
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Delete')]"))).click()
         driver.find_element_by_xpath(data["admin"]["GPS_settings"]["delete"]).click()
-        print("- Select GPS delete")
+        Logging("- Select GPS delete")
         driver.find_element_by_xpath(data["admin"]["GPS_settings"]["accept_delete"]).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Close')]"))).click()
-        print("- Accept delete")
+        Logging("- Accept delete")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["delete_GPS"]["pass"])
         time.sleep(10)
     except:
-        print("- Can't delete GPS")
+        Logging("- Can't delete GPS")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["delete_GPS"]["fail"])
 
     driver.find_element_by_xpath(data["admin"]["GPS_settings"]["back"]).click()
-    print(" ")
+    Logging(" ")
 
 def admin_WF():
-    print("------- Add Wifi -------")
+    Logging("------- Add Wifi -------")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'WiFi Setting')]"))).click()
-    print("- Select Wifi setting")
+    Logging("- Select Wifi setting")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["add_wifi"]).click()
-    print("- Add new wifi")
+    Logging("- Add new wifi")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["wifi_name"]).click()
-    print("- Select name wifi")
+    Logging("- Select name wifi")
 
     try:
         warning = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'WIFI Settings')]")))
         if warning.is_displayed():
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["admin"]["WIFI_settings"]["add_wifi"])))
         else:
-            print("=> Fail")
+            Logging("=> Fail")
     except WebDriverException:
-        print("=> Fail")
+        Logging("=> Fail")
 
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["button_next"][0]).click()
-    print("- Select next step")
+    Logging("- Select next step")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["workPlace"]).click()
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["workPlace_input"]).click()
-    print("- Select work Place")
+    Logging("- Select work Place")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["button_next"][1]).click()
-    print("- Select next step")
+    Logging("- Select next step")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["close_popup"]).click()
-    print("- Close pop up")
+    Logging("- Close pop up")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["complete"]).click()
-    print("- Add wifi success")
+    Logging("- Add wifi success")
     time.sleep(5)
 
     '''
@@ -647,19 +646,19 @@ def admin_WF():
     -> When finish auto, open app and delete element => can't click on button, must kill app and open again it's can be use again
     * Can delete when use manaul 
     '''
-    print("Delete wifi")
+    Logging("Delete wifi")
     driver.swipe(start_x=1000, start_y=550, end_x=500, end_y=550, duration=800)
     time.sleep(5)
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Delete')]"))).click()
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["delete"]).click()
-    print("- Select wifi")
+    Logging("- Select wifi")
     driver.find_element_by_xpath(data["admin"]["GPS_settings"]["accept_delete"]).click()
     driver.find_element_by_xpath(data["admin"]["GPS_settings"]["popup"]).click()
-    print("- Accept delete")
+    Logging("- Accept delete")
 
-    print("- Search wifi")
+    Logging("- Search wifi")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'WiFi Setting')]"))).click()
-    print("- Select Wifi setting")
+    Logging("- Select Wifi setting")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Please enter your keyword.')]"))).click()
     
     ''' Send key from keyboard mobile '''
@@ -676,25 +675,25 @@ def admin_WF():
     driver.find_element_by_xpath(data["admin"]["GPS_settings"]["back"]).click()
 
 def admin_BC():
-    print(" ")
-    print("------- Add Beacon -------")
+    Logging(" ")
+    Logging("------- Add Beacon -------")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Beacon Setting')]"))).click()
-    print("- Select Beacon")
+    Logging("- Select Beacon")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["add_wifi"]).click()
-    print("- Add new Beacon")
+    Logging("- Add new Beacon")
     time.sleep(20)
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'MiniBeacon_00997')]"))).click()
-    print("- Select Beacon")
+    Logging("- Select Beacon")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Next')]"))).click()
-    print("- Select next step")
+    Logging("- Select next step")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["workPlace"]).click()
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["workPlace_input"]).click()
-    print("- Select work Place")
+    Logging("- Select work Place")
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["button_next"][1]).click()
-    print("- Select next step")
+    Logging("- Select next step")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Close')]"))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Complete')]"))).click()
-    print("- Add Beacon success")
+    Logging("- Add Beacon success")
     driver.find_element_by_xpath(data["admin"]["GPS_settings"]["back"]).click()
 
     driver.find_element_by_xpath(data["admin"]["BEACON_settings"]["edit"]).click()
@@ -702,18 +701,18 @@ def admin_BC():
     beacon.clear()
     beacon.send_keys(data["admin"]["BEACON_settings"]["name"] + str(n))
     driver.find_element_by_xpath(data["admin"]["WIFI_settings"]["button_next"][1]).click()
-    print("- Select next step")
+    Logging("- Select next step")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Close')]"))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Complete')]"))).click()
-    print("- Edit Beacon success")
+    Logging("- Edit Beacon success")
     time.sleep(2)
     driver.find_element_by_xpath(data["admin"]["GPS_settings"]["back"]).click()
 
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["admin"]["homepage"]))).click()
 
 def settings():
-    print(" ")
-    print("** Settings app **")
+    Logging(" ")
+    Logging("** Settings app **")
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["settings_button"]))).click()
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["language"]))).click()
 
@@ -723,9 +722,9 @@ def settings():
     
     korean_text = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["language_text"])))
     if korean_text.text == '한국어':
-        print("=> Change to language '한국어' success")
+        Logging("=> Change to language '한국어' success")
     else:
-        print("=> Fail")
+        Logging("=> Fail")
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@text='언어 설정']"))).click()
     
@@ -735,9 +734,9 @@ def settings():
 
     VN_text = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["language_text"])))
     if VN_text.text == 'Tiếng Việt':
-        print("=> Change to language 'Tiếng Việt' success")
+        Logging("=> Change to language 'Tiếng Việt' success")
     else:
-        print("=> Fail")
+        Logging("=> Fail")
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Thay đổi ngôn ngữ']"))).click()
 
@@ -747,9 +746,9 @@ def settings():
 
     JP = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["language_text"])))
     if JP.text == '日本語':
-        print("=> Change to language '日本語' success")
+        Logging("=> Change to language '日本語' success")
     else:
-        print("=> Fail")
+        Logging("=> Fail")
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@text='言語']"))).click()
 
@@ -759,9 +758,9 @@ def settings():
 
     TQ = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["language_text"])))
     if TQ.text == '简体中文':
-        print("=> Change to language '简体中文' success")
+        Logging("=> Change to language '简体中文' success")
     else:
-        print("=> Fail")
+        Logging("=> Fail")
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@text='語言']"))).click()
 
@@ -771,9 +770,9 @@ def settings():
 
     indo = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["language_text"])))
     if indo.text == 'Indonesian':
-        print("=> Change to language 'Indonesian' success")
+        Logging("=> Change to language 'Indonesian' success")
     else:
-        print("=> Fail")
+        Logging("=> Fail")
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Ganti BAHASA']"))).click()
 
@@ -782,32 +781,32 @@ def settings():
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["settings_button"]))).click()
     EN = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["settings"]["language_text"])))
     if EN.text == 'English':
-        print("=> Change to language 'English' success")
+        Logging("=> Change to language 'English' success")
     else:
-        print("=> Fail")
+        Logging("=> Fail")
 
 def attachfile():
     try:
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["add_file"]))).click()
-        print("- Select attach file")
+        Logging("- Select attach file")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["choose_photo"]))).click()
-        print("- Choose photo")
+        Logging("- Choose photo")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, data["vacation"]["choose_gallery"]))).click()
-        print("- Choose gallery")
+        Logging("- Choose gallery")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["select_photo"]))).click()
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, data["vacation"]["select"]))).click()
-        print("- Select photo")
+        Logging("- Select photo")
         time.sleep(5)
         TesCase_LogResult(**data["testcase_result"]["vacation"]["attach_file"]["pass"])
     except:
-        print("- Can't attach file")
+        Logging("- Can't attach file")
         TesCase_LogResult(**data["testcase_result"]["vacation"]["attach_file"]["fail"])
 
 def select_date_month():
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["next"]))).click()
-    print("- View next date-month")
+    Logging("- View next date-month")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["prev"]))).click()
-    print("- View pre date-month")
+    Logging("- View pre date-month")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["calendar_select"]))).click()
     time.sleep(5)
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=19]"))).click()
@@ -816,7 +815,7 @@ def select_date_month():
     dateselect_text = dateselect.text
     time.sleep(5)
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["select_date"]))).click()
-    print("- Select calendar")
+    Logging("- Select calendar")
 
     return dateselect_text
 
@@ -831,308 +830,308 @@ def input_user_name():
     driver.press_keycode(42)
     driver.press_keycode(36)
     driver.press_keycode(66)
-    print("- Search user")
+    Logging("- Search user")
 
 def timecard():
     try:
-        print(" ")
-        print("** Check crash app **")
-        print("- Timesheet - Daily -")
+        Logging(" ")
+        Logging("** Check crash app **")
+        Logging("- Timesheet - Daily -")
         driver.find_element_by_xpath(data["event"]["timecard"]).click()
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["event"]["timesheet"]))).click()
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_daily"]["next"]))).click()
-        print("- View next date")   
+        Logging("- View next date")   
         time.sleep(5)
         next_text = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_daily"]["policy"])))
         if next_text.text == 'Work Policy':
-            print("=> View next date success")
+            Logging("=> View next date success")
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)    
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_daily"]["prev"]))).click()
-        print("- View preview date")
+        Logging("- View preview date")
         time.sleep(5)
         prev_text = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_daily"]["policy"])))
         if prev_text.text == 'Work Policy':
-            print("=> View prev date success")
+            Logging("=> View prev date success")
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)   
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_daily"]["calendar"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=9]"))).click()
-        print("- Select date from calendar")
+        Logging("- Select date from calendar")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_daily"]["select_date"]))).click()
         time.sleep(5)
         date_select = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_daily"]["date"])))
         if date_select.is_displayed():
-            print("=> Select date success")
+            Logging("=> Select date success")
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)   
         time.sleep(5)   
         
-        print(" ")
-        print("- Timesheet - List -")
+        Logging(" ")
+        Logging("- Timesheet - List -")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["list"]))).click()
-        print("- Go to List") 
+        Logging("- Go to List") 
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["next"]))).click()
-        print("- View next month")   
+        Logging("- View next month")   
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["prev"]))).click()
-        print("- View preview month")
+        Logging("- View preview month")
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["calendar"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=9]"))).click()
-        print("- Select date from calendar")
+        Logging("- Select date from calendar")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["select_date"]))).click()
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["sort"]))).click()
-        print("- Sort by")
+        Logging("- Sort by")
         time.sleep(2)
         list_week = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["list_sort"])))
         if list_week.is_displayed():
-            print("- Show list week")
+            Logging("- Show list week")
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["week_2"]))).click()
-        print("- 2nd Week")
+        Logging("- 2nd Week")
         time.sleep(5)
         
         total_week_1 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["week_2_text"])))
         if total_week_1.text == 'TOTAL OF 2ND WEEK':
-            print("=> TOTAL OF 2ND WEEK")
+            Logging("=> TOTAL OF 2ND WEEK")
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["sort"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["week_3"]))).click()
-        print("- 3rd Week")
+        Logging("- 3rd Week")
         time.sleep(5)
 
         total_week_2 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["week_3_text"])))
         if total_week_2.text == 'TOTAL OF 3RD WEEK':
-            print("=> TOTAL OF 3RD WEEK")
+            Logging("=> TOTAL OF 3RD WEEK")
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["sort"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["week_4"]))).click()
-        print("- 4th Week")
+        Logging("- 4th Week")
         time.sleep(5)
         total_week_3 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["week_4_text"])))
         if total_week_3.text == 'TOTAL OF 4TH WEEK':
-            print("=> TOTAL OF 4TH WEEK")
+            Logging("=> TOTAL OF 4TH WEEK")
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["sort"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["week_5"]))).click()
-        print("- 5th Week")
+        Logging("- 5th Week")
         time.sleep(5)
         total_week_4 = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["week_5_text"])))
         if total_week_4.text == 'TOTAL OF 5TH WEEK':
-            print("=> TOTAL OF 5TH WEEK")
+            Logging("=> TOTAL OF 5TH WEEK")
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
         
-        print(" ")
-        print("- Timesheet - Calendar -")
+        Logging(" ")
+        Logging("- Timesheet - Calendar -")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["calendar"]))).click()
-        print("- Go to List") 
+        Logging("- Go to List") 
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["next"]))).click()
-        print("- View next date")   
+        Logging("- View next date")   
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["prev"]))).click()
-        print("- View preview date")
+        Logging("- View preview date")
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["calendar_select"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=9]"))).click()
-        print("- Select date from calendar")
+        Logging("- Select date from calendar")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["select_date"]))).click()
         time.sleep(5)
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_Timesheet"]["pass"])
     except:
-        print("-> Crash app")
+        Logging("-> Crash app")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_Timesheet"]["fail"])
     
     driver.find_element_by_xpath(data["event"]["timecard"]).click()
 
     ''' REPORT '''
     try:
-        print("** Check report - Monthly")
+        Logging("** Check report - Monthly")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["MT_report"]))).click()
-        print("- Schedule Working")
+        Logging("- Schedule Working")
         time.sleep(10)
 
         schedule = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["schedule_working"])))
         if schedule.text == 'Scheduled working day':
             count_day = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["count_schedule_working"])))
-            print("- Scheduled working day:", count_day.text)
+            Logging("- Scheduled working day:", count_day.text)
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["events"]))).click()
-        print("- Events")
+        Logging("- Events")
         time.sleep(5)
         clock_in = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["clockin"])))
         if clock_in.text == 'Clock-In':
             count_clock_in = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["count_clockin"])))
-            print("- Events - Clock in:", count_clock_in.text)
+            Logging("- Events - Clock in:", count_clock_in.text)
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["working_status"]))).click()
-        print("- Working status")
+        Logging("- Working status")
         time.sleep(5)
         working_time = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["workingtime"])))
         if working_time.text == 'Working time':
             count_working_time = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_monthly"]["count_workingtime"])))
-            print("- Working status - Working time:", count_working_time.text)
+            Logging("- Working status - Working time:", count_working_time.text)
         else:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
 
-        print("** Check report - Weekly")
+        Logging("** Check report - Weekly")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_weekly"]["weekly"]))).click()
-        print("- View week tab")
+        Logging("- View week tab")
         time.sleep(10)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Device']"))).click()
-        print("- View tab device")
+        Logging("- View tab device")
         time.sleep(5)
 
         driver.swipe(start_x=1174, start_y=730, end_x=400, end_y=730, duration=800)
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Average working hour per week']"))).click()
-        print("- View tab Avg_Working")
+        Logging("- View tab Avg_Working")
         time.sleep(5)
         driver.swipe(start_x=1174, start_y=730, end_x=400, end_y=730, duration=800)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Working hours per day of the week']"))).click()
-        print("- View tab working hour")
+        Logging("- View tab working hour")
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["next"]))).click()
-        print("- View next date")   
+        Logging("- View next date")   
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["prev"]))).click()
-        print("- View preview date")
+        Logging("- View preview date")
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["calendar_select"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=9]"))).click()
-        print("- Select date from calendar")
+        Logging("- Select date from calendar")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["select_date"]))).click()
         time.sleep(5)
 
-        print("** Check report - List")
+        Logging("** Check report - List")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report_list"]["list"]))).click()
-        print("- View list tab")
+        Logging("- View list tab")
         time.sleep(10)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["next"]))).click()
-        print("- View next date")   
+        Logging("- View next date")   
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["prev"]))).click()
-        print("- View preview date")
+        Logging("- View preview date")
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_calendar"]["calendar_select"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=9]"))).click()
-        print("- Select date from calendar")
+        Logging("- Select date from calendar")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timesheet_list"]["select_date"]))).click()
         time.sleep(5)
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_Report"]["pass"])
     except:
-        print("-> Crash app")
+        Logging("-> Crash app")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_Report"]["fail"])
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,data["event"]["timecard"]))).click()
     
     try:
-        print(" ")
-        print("** Check Company timecard - Weekly Status")
+        Logging(" ")
+        Logging("** Check Company timecard - Weekly Status")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["weekly_status_CT"]))).click()
         time.sleep(5)
         try:
             title = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["week_title"])))
             if title.text == 'Weekly Status':
-                print("- Show content")
+                Logging("- Show content")
 
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         try:
             WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["sort_week"]))).click()
-            print("- Select sort week")
+            Logging("- Select sort week")
             sortweek = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["list"])))
             if sortweek.is_displayed:
-                print("- List week display")
+                Logging("- List week display")
             else:
-                print("- List not display")
+                Logging("- List not display")
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
-        print("- Select week")
+        Logging("- Select week")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["week_2"]))).click()
-        print("- 2nd Week")
+        Logging("- 2nd Week")
         time.sleep(5)
         try:
             user_view = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["user"])))
             if user_view.is_displayed():
-                print("- Show content")
+                Logging("- Show content")
             else:
-                print("- No data")
+                Logging("- No data")
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["sort_week"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["week_3"]))).click()
-        print("- 3rd Week")
+        Logging("- 3rd Week")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["sort_week"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["week_4"]))).click()
-        print("- 4th Week")
+        Logging("- 4th Week")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["sort_week"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["week_5"]))).click()
-        print("- 5th Week")
+        Logging("- 5th Week")
         time.sleep(5)
 
         '''WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["sort_week"]))).click()
@@ -1140,12 +1139,12 @@ def timecard():
         driver.swipe(start_x=291, start_y=1126, end_x=291, end_y=900, duration=800)
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["week_6"]))).click()
-        print("- 6th Week")
+        Logging("- 6th Week")
         time.sleep(5)'''
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["sort_week"]))).click()
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["week_1"]))).click()
-        print("- 1st Week")
+        Logging("- 1st Week")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["search"]))).click()
@@ -1156,9 +1155,9 @@ def timecard():
 
         ''' Next - Prev - Select date '''
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["next"]))).click()
-        print("- View next date-month")
+        Logging("- View next date-month")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["prev"]))).click()
-        print("- View pre date-month")
+        Logging("- View pre date-month")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["calendar_select"]))).click()
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=19]"))).click()
@@ -1167,22 +1166,22 @@ def timecard():
         dateselect_text = dateselect.text
         time.sleep(5)
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["select_date"]))).click()
-        print("- Select calendar")
+        Logging("- Select calendar")
 
         time.sleep(10)
 
         try:
             user_view = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["user"])))
             if user_view.is_displayed():
-                print("- Show content")
+                Logging("- Show content")
             else:
-                print("- No data")
+                Logging("- No data")
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["view_detail"]))).click()
-        print("- View detail")
+        Logging("- View detail")
 
         date_of_calendar = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["date"])))
         date = date_of_calendar.text
@@ -1190,29 +1189,29 @@ def timecard():
         a = x.split(",")[0]
 
         if a == dateselect_text:
-            print("- Show right date")
+            Logging("- Show right date")
         else:
-            print("- Crash")
+            Logging("- Crash")
             exit(0)
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_weekly_status"]["pass"])
     except:
-        print("-> Crash app")
+        Logging("-> Crash app")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_weekly_status"]["fail"])
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["weekly_status"]["back"]))).click()
 
     try:
-        print(" ")
-        print("** Check Company timecard - Time Line")
+        Logging(" ")
+        Logging("** Check Company timecard - Time Line")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["timeline_CT"]))).click()
         time.sleep(5)
         try:
             title = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["timeline_title"])))
             if title.text == 'Time Line':
-                print("- Show content")
+                Logging("- Show content")
 
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
 
         ''' Search user '''
@@ -1220,7 +1219,7 @@ def timecard():
         input_user_name()
 
         WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'quynh1')]"))).click()
-        print("- Select user")
+        Logging("- Select user")
         time.sleep(5)
 
         ''' Next - Prev - Select date '''
@@ -1228,36 +1227,36 @@ def timecard():
         time.sleep(10)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
-        print("- Sort time line")
+        Logging("- Sort time line")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["clockin"]))).click()
-        print("- Clock in")
+        Logging("- Clock in")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
-        print("- Sort time line")
+        Logging("- Sort time line")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["tardin"]))).click()
-        print("- Tardines")
+        Logging("- Tardines")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
-        print("- Sort time line")
+        Logging("- Sort time line")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["clockout"]))).click()
-        print("- Clock out")
+        Logging("- Clock out")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
-        print("- Sort time line")
+        Logging("- Sort time line")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["auto_clockout"]))).click()
-        print("- Automatically Clock-out")
+        Logging("- Automatically Clock-out")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
-        print("- Sort time line")
+        Logging("- Sort time line")
         time.sleep(5)
         driver.swipe(start_x=291, start_y=1315, end_x=291, end_y=691, duration=800)
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["outside"]))).click()
-        print("- Outside")
+        Logging("- Outside")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
@@ -1265,7 +1264,7 @@ def timecard():
         driver.swipe(start_x=291, start_y=1315, end_x=291, end_y=691, duration=800)
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["meeting"]))).click()
-        print("- Meeting")
+        Logging("- Meeting")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
@@ -1273,7 +1272,7 @@ def timecard():
         driver.swipe(start_x=291, start_y=1315, end_x=291, end_y=691, duration=800)
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["edu"]))).click()
-        print("- Education")
+        Logging("- Education")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
@@ -1281,7 +1280,7 @@ def timecard():
         driver.swipe(start_x=291, start_y=1315, end_x=291, end_y=691, duration=800)
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["business"]))).click()
-        print("- Business Trip")
+        Logging("- Business Trip")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
@@ -1289,7 +1288,7 @@ def timecard():
         driver.swipe(start_x=291, start_y=1315, end_x=291, end_y=691, duration=800)
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["working_remote"]))).click()
-        print("- Working remote")
+        Logging("- Working remote")
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["sort_timeline"]))).click()
@@ -1298,27 +1297,27 @@ def timecard():
         driver.swipe(start_x=291, start_y=1315, end_x=291, end_y=691, duration=800)
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["timeline"]["working"]))).click()
-        print("- Working")
+        Logging("- Working")
         time.sleep(5)
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_time_line"]["pass"])
     except:
-        print("-> Crash app")
+        Logging("-> Crash app")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_time_line"]["fail"])
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,data["event"]["timecard"]))).click() 
 
     try:
-        print(" ")
-        print("** Check Company timecard - Report")
+        Logging(" ")
+        Logging("** Check Company timecard - Report")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report"]["report_CT"]))).click()
-        print("- View by work")
+        Logging("- View by work")
         time.sleep(5)
         try:
             title = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report"]["report_title"])))
             if title.text == 'Report':
-                print("- Show content")
+                Logging("- Show content")
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
 
         ''' Next - Prev - Select date '''
@@ -1326,60 +1325,60 @@ def timecard():
         time.sleep(10)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report"]["search"]))).click()
-        print("- Search user")
+        Logging("- Search user")
         input_user_name()
         time.sleep(3)
         WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'quynh1')]"))).click()
-        print("- Select user")
+        Logging("- Select user")
         time.sleep(5)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report"]["detail"]))).click()
-        print("- View detail")
+        Logging("- View detail")
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report"]["back"]))).click()
         time.sleep(5)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report"]["view_by_event"]))).click()
-        print("- View by event")
+        Logging("- View by event")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report"]["detail"]))).click()
-        print("- View detail")
+        Logging("- View detail")
         time.sleep(5)
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["report"]["back"]))).click()
         time.sleep(5)
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_report"]["pass"])
     except:
-        print("-> Crash app")
+        Logging("-> Crash app")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_report"]["fail"])
 
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH,data["event"]["timecard"]))).click()
 
     try:
-        print(" ")
-        print("** Check Company timecard - Approval")
+        Logging(" ")
+        Logging("** Check Company timecard - Approval")
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["approval_CT"]))).click()
         time.sleep(5)
         try:
             title = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["approval_title"])))
             if title.text == 'Approval':
-                print("- Show content")
+                Logging("- Show content")
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(10)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["filter_type"]))).click()
-        print("- Filter type")
+        Logging("- Filter type")
         time.sleep(5)
         try:
             filter = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["detail"])))
             if filter.text == 'Detail':
-                print("-")
+                Logging("-")
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["type"]))).click()
-        print("- Select type")
+        Logging("- Select type")
         time.sleep(5)
         try:
             type_detail = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["event"])))
@@ -1387,11 +1386,11 @@ def timecard():
                 type_detail.click()
                 time.sleep(5)
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["status"]))).click()
-        print("- Select status")
+        Logging("- Select status")
         time.sleep(5)
         try:
             status = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["pending"])))
@@ -1399,11 +1398,11 @@ def timecard():
                 status.click()
                 time.sleep(5)
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
 
         '''WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["peroid"]))).click()
-        print("- Select peroid")
+        Logging("- Select peroid")
         time.sleep(5)
         try:
             peroid = WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["today"])))
@@ -1411,7 +1410,7 @@ def timecard():
                 peroid.click()
                 time.sleep(5)
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)'''
 
@@ -1420,9 +1419,9 @@ def timecard():
         try:
             title = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["approval_title"])))
             if title.text == 'Approval':
-                print("- Show content")
+                Logging("- Show content")
         except WebDriverException:
-            print("=> Crash app")
+            Logging("=> Crash app")
             exit(0)
         time.sleep(5)
 
@@ -1432,7 +1431,7 @@ def timecard():
 
         WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["user"]))).click()
         #WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//android.widget.TextView[@text='quynh1']"))).click()
-        print("- Select user")
+        Logging("- Select user")
         time.sleep(5)
 
         ''' Approve '''
@@ -1443,14 +1442,14 @@ def timecard():
                 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["approve"]))).click()
                 time.sleep(5)
                 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["close"]))).click()
-                print("- Approve request")
+                Logging("- Approve request")
                 time.sleep(5)
                 
                 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["filter_type"]))).click()
-                print("- Filter type")
+                Logging("- Filter type")
                 time.sleep(5)
                 WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["status"]))).click()
-                print("- Select status")
+                Logging("- Select status")
                 time.sleep(5)
                 WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["approved"]))).click()
                 time.sleep(5)
@@ -1460,13 +1459,13 @@ def timecard():
 
                 status_approve = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["status_text"])))
                 if status_approve.text == 'Approved':
-                    print("- Approve success")
+                    Logging("- Approve success")
                 else:
-                    print("- Fail")
+                    Logging("- Fail")
             else:
-                print("=> Approve don't have approve permission")
+                Logging("=> Approve don't have approve permission")
         except WebDriverException:
-            print("=> Approve don't have approve permission")
+            Logging("=> Approve don't have approve permission")
 
         ''' Reject '''
         add_event()
@@ -1483,35 +1482,35 @@ def timecard():
                 time.sleep(5)
                 status_reject = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, data["TimeCard"]["approval"]["status_text"])))
                 if status_reject.text == 'Rejected':
-                    print("- Rejected success")
+                    Logging("- Rejected success")
                 else:
-                    print("- Fail")
+                    Logging("- Fail")
             else:
-                print("=> Approve don't have approve permission")
+                Logging("=> Approve don't have approve permission")
         except WebDriverException:
-            print("=> Approve don't have approve permission")
+            Logging("=> Approve don't have approve permission")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_Approval"]["pass"])
     except:
-        print("-> Crash app")
+        Logging("-> Crash app")
         TesCase_LogResult(**data["testcase_result"]["timecard"]["crash_app_Approval"]["pass"])
 
 def request_vacation():
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["button_vacation"]))).click()
-    print("- Vacation")
+    Logging("- Vacation")
     ''' Request vaction'''
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["request"]))).click() 
     
     title_request = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["request_vacation_text"])))
     if title_request.text == 'Request vacation':
-        print("=> Request vacation")
+        Logging("=> Request vacation")
     else:
-        print("=> Crash app")
+        Logging("=> Crash app")
         exit(0)   
     try:
         vacation_type = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["AM"])))
         if vacation_type.is_displayed():
             vacation_type.click()
-            print("- Select vacation type")
+            Logging("- Select vacation type")
 
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["calendar"]))).click()
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=16]"))).click()
@@ -1524,12 +1523,12 @@ def request_vacation():
             try:
                 title_request = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["request_vacation_text"])))
                 if title_request.text == 'Request vacation':
-                    print("- Select date vacation")
+                    Logging("- Select date vacation")
                 else:
-                    print("=> Crash app")
+                    Logging("=> Crash app")
                     exit(0)  
             except WebDriverException: 
-                print("=> Crash app")
+                Logging("=> Crash app")
                 exit(0)
 
             ''' Get data of vacation request '''
@@ -1568,12 +1567,12 @@ def request_vacation():
     # input_user_name()
     # WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'quynh1')]"))).click()
     # WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["save_cc"]))).click()
-    # print("- Select CC")
+    # Logging("- Select CC")
 
     driver.swipe(start_x=650, start_y=1662, end_x=650, end_y=355, duration=800)
 
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Please enter your reason']"))).send_keys(data["vacation"]["my_vacation"]["input_test"])
-    print("- Input reason")
+    Logging("- Input reason")
     
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["button_request"]))).click()
     
@@ -1583,26 +1582,26 @@ def request_vacation():
     try:
         fail = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["request_fail"])))
         if fail.text == 'request vacation failure':
-            print("--- Request vacation failure - vacation day is saturday---")
+            Logging("--- Request vacation failure - vacation day is saturday---")
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["close_fail"]))).click()
             time.sleep(2)
             driver.swipe(start_x=650, start_y=355, end_x=650, end_y=2275, duration=800)
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["calendar"]))).click()
             time.sleep(2)
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=16]"))).click()
-            print("=> Select start date")
+            Logging("=> Select start date")
             
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.view.ViewGroup[@index='1']//android.widget.Button[@index=16]"))).click()
-            print("=> Select end date")
+            Logging("=> Select end date")
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["select_calendar"]))).click()
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["button_request"]))).click() 
-            print("=> Send request vacation")
+            Logging("=> Send request vacation")
             TesCase_LogResult(**data["testcase_result"]["vacation"]["request_vacation"]["pass"])
         else:
-            print("=> Request success")
+            Logging("=> Request success")
             TesCase_LogResult(**data["testcase_result"]["vacation"]["request_vacation"]["pass"])
     except WebDriverException:
-        print("=> Request success") 
+        Logging("=> Request success") 
         TesCase_LogResult(**data["testcase_result"]["vacation"]["request_vacation"]["pass"])
 
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["button_close"]))).click()
@@ -1626,75 +1625,75 @@ def approve_request():
     time.sleep(15)
     request_vacation()
 
-    print(" ")
+    Logging(" ")
     ''' Log out '''
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["setting_button"]))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["logout"]))).click()
-    print("=> Change to user 2 to approve request")
+    Logging("=> Change to user 2 to approve request")
 
     ''' Log in '''
     id_user2 = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["user_name"])))
     id_user2.clear()
     id_user2.send_keys(data["id_name_2"])
-    print("- Input ID")
+    Logging("- Input ID")
     WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Password']")))
     driver.find_element_by_xpath(data["password"]).send_keys(data["pass_input"])
-    print("- Input Password")
+    Logging("- Input Password")
     WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Login')]")))
     driver.find_element_by_xpath(data["button_login"]).click()
-    print("=> Click Log In button")
+    Logging("=> Click Log In button")
     driver.implicitly_wait(50)
 
     ''' Check request vacation of user 1 '''
     time.sleep(5)
-    print("- Check request vacation")
+    Logging("- Check request vacation")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["button_vacation"]))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["manage_processing"]["vacation_approve"]))).click()
     time.sleep(3)
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["search"]))).click()
     input_user_name()
-    print("- Search user")
+    Logging("- Search user")
 
     WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'quynh1')]"))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["select_user"]))).click()
-    print("- Select user")
+    Logging("- Select user")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["approve"]))).click()
-    print("- Approve request")
+    Logging("- Approve request")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["accept_approve"]))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["close_popup"]))).click()
-    print("=> Approve success")
+    Logging("=> Approve success")
 
     text_approve = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["approve_text"])))
     if text_approve.text == 'Approved':
-        print("=> Request have approve success")
+        Logging("=> Request have approve success")
         TesCase_LogResult(**data["testcase_result"]["vacation"]["approve_request"]["pass"])
     else:
-        print("=> Approve fail")
+        Logging("=> Approve fail")
         TesCase_LogResult(**data["testcase_result"]["vacation"]["approve_request"]["fail"])
 
     ''' User cancel request '''
-    print(" ")
+    Logging(" ")
     ''' Log out '''
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["setting_button"]))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["logout"]))).click()
-    print("=> Change to user 1 - check request have been approve - cancel request")
+    Logging("=> Change to user 1 - check request have been approve - cancel request")
 
     ''' Log in '''
     id_user2 = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["user_name"])))
     id_user2.clear()
     id_user2.send_keys(data["id_name"])
-    print("- Input ID")
+    Logging("- Input ID")
     WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Password']")))
     driver.find_element_by_xpath(data["password"]).send_keys(data["pass_input"])
-    print("- Input Password")
+    Logging("- Input Password")
     WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Login')]")))
     driver.find_element_by_xpath(data["button_login"]).click()
-    print("=> Click Log In button")
+    Logging("=> Click Log In button")
     driver.implicitly_wait(50)
 
     ''' Check request vacation of user 1 '''
     time.sleep(5)
-    print("- Check request vacation")
+    Logging("- Check request vacation")
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["button_vacation"]))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["manage_processing"]["vacation_approve"]))).click()
     time.sleep(3)
@@ -1705,10 +1704,10 @@ def approve_request():
 
     text_approve = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["approve_text"])))
     if text_approve.text == 'Approved':
-        print("=> Request have approve success")
+        Logging("=> Request have approve success")
         TesCase_LogResult(**data["testcase_result"]["vacation"]["approve_request"]["pass"])
     else:
-        print("=> Approve fail")
+        Logging("=> Approve fail")
         TesCase_LogResult(**data["testcase_result"]["vacation"]["approve_request"]["fail"])
 
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["button_vacation"]))).click()
@@ -1717,60 +1716,60 @@ def approve_request():
     time.sleep(10)
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["vacation_status"]["cancel_request"]))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["vacation_status"]["button_ok"]))).click()
-    print("- Cancel request")
+    Logging("- Cancel request")
     time.sleep(10)
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["close_popup"]))).click()
-    print("=> Approve cancel request success")
+    Logging("=> Approve cancel request success")
     time.sleep(5)
 
     text_cancel = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["my_vacation"]["vacation_status"]["text_request"])))
     if text_cancel.text == 'User cancel':
-        print("=> Send cancel request success")
+        Logging("=> Send cancel request success")
     else:
-        print("=> Approve Arbitrary decision")
+        Logging("=> Approve Arbitrary decision")
 
-    print(" ")
+    Logging(" ")
     ''' Change to user 2 - approve cancel request'''
     ''' Log out '''
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["setting_button"]))).click()
     WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["logout"]))).click()
-    print("=> Change to user 2 - approve cancel request")
+    Logging("=> Change to user 2 - approve cancel request")
 
     ''' Log in '''
     id_user2 = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["user_name"])))
     id_user2.clear()
     id_user2.send_keys(data["id_name_2"])
-    print("- Input ID")
+    Logging("- Input ID")
     WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Password']")))
     driver.find_element_by_xpath(data["password"]).send_keys(data["pass_input"])
-    print("- Input Password")
+    Logging("- Input Password")
     WebDriverWait(driver, 50).until(EC.presence_of_element_located((By.XPATH, "//*[contains(@text,'Login')]")))
     driver.find_element_by_xpath(data["button_login"]).click()
-    print("=> Click Log In button")
+    Logging("=> Click Log In button")
     driver.implicitly_wait(50)
 
     ''' Check request vacation of user 1 '''
     time.sleep(5)
     try:
-        print("- Check request vacation")
+        Logging("- Check request vacation")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["button_vacation"]))).click()
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["manage_processing"]["vacation_approve"]))).click()
         time.sleep(3)
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["cancel_request"]))).click()
-        print("- Click cancel request")
+        Logging("- Click cancel request")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["status"]))).click()
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@text='Request']"))).click()
-        print("- Select status request")
+        Logging("- Select status request")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["request"]))).click()
-        print("- Select request")
+        Logging("- Select request")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["approve_cancel"]))).click()
-        print("- APPROVE CANCELLATION")
+        Logging("- APPROVE CANCELLATION")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["accept_approve_cancel"]))).click()
-        print("=> Cancel request")
+        Logging("=> Cancel request")
         WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, data["vacation"]["vacation_approve"]["close_popup"]))).click()
         TesCase_LogResult(**data["testcase_result"]["vacation"]["approve_cancel"]["pass"])
     except:
-        print("=> Cancel request fail")
+        Logging("=> Cancel request fail")
         TesCase_LogResult(**data["testcase_result"]["vacation"]["approve_cancel"]["fail"])
 
 def check_notification():
@@ -1778,9 +1777,16 @@ def check_notification():
     time.sleep(10)
     driver.swipe(start_x=713, start_y=0, end_x=713, end_y=1189, duration=800)
     Logging("- Sroll action bar")
-    noti_text = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout//android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView[1]")))
-    vacation_text = noti_text.text
-    Logging(vacation_text)
-    user_text = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout//android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.TextView")))
-    user = user_text.text
-    Logging(user)
+    try:
+        noti_text = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout//android.widget.LinearLayout[1]/android.view.ViewGroup/android.widget.TextView[1]")))
+        vacation_text = noti_text.text
+        Logging(vacation_text)
+        user_text = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//android.widget.FrameLayout[1]/android.view.ViewGroup/android.widget.ScrollView/android.widget.FrameLayout[1]/android.widget.FrameLayout[1]/android.widget.FrameLayout//android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.TextView")))
+        user = user_text.text
+        Logging(user)
+        type_text = vacation_text.split(" ")[0]
+        if type_text == "[Request]":
+            Logging("- Notification have show")
+    except:
+        Logging("- Don't show notification")
+
